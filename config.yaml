@@ -1,0 +1,26 @@
+refgenome: ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/009/858/895/GCF_009858895.2_ASM985889v3/GCF_009858895.2_ASM985889v3_genomic.fna.gz
+
+minimap2_setting: sr
+
+# thresholds to call a read alignment "high identity"
+high_ident_thresholds:
+  min_length: 40
+  min_identity: 0.95
+
+outgroups:
+  RaTG13: MN996532.2
+  BANAL-20-52: MZ937000.1
+
+accessions:
+  - SRR13441700
+  - SRR13441701
+  - SRR13441702
+  - SRR13441703
+  - SRR13441704
+  - SRR13441705
+  - SRR13441706
+  - SRR13441707
+  - SRR13441708
+  - SRR13441709
+  - SRR13441710
+  - SRR13441711

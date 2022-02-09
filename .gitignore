@@ -1,0 +1,11 @@
+.*
+!.gitignore
+*.out
+
+results/*
+!results/alignment_counts.csv
+!results/variant_analysis.csv
+!results/variant_analysis_to_outgroup.csv
+!results/fastq_instrument_info
+results/fastq_instrument_info/*
+!results/fastq_instrument_info/aggregated.csv

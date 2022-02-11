@@ -1,6 +1,9 @@
+#!/usr/bin/env python
+
 """Build map of identities in reference to outgroups from alignment."""
 
 
+import snakemake
 import Bio.SeqIO
 
 import pandas as pd

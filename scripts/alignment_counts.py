@@ -1,6 +1,8 @@
+#!/usr/bin/env python
+
 """Aggregate alignment counts across accessions."""
 
-
+import snakemake
 import subprocess
 
 import pandas as pd
@@ -16,7 +18,8 @@ records = []
 
 for accession, bam, high_ident_bam in zip(accessions, bams, high_ident_bams):
     for name, bamfile in [('any', bam), ('high_identity', high_ident_bam)]:
-        res = subprocess.run(['samtools', 'view', '-c', bamfile], capture_output=True)
+        res = subprocess.run(['samtools', 'view', '-c', bamfile],
+                             capture_output=True)
         assert res.returncode == 0
         count = int(res.stdout)
         assert count >= 0

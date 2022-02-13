@@ -1,6 +1,8 @@
+#!/usr/bin/env python
+
 """Analyze variants called by ``ivar`` relative to outgroups."""
 
-
+import snakemake
 import pandas as pd
 
 
@@ -9,7 +11,7 @@ site_map = pd.read_csv(snakemake.input.site_map)
 assert len(snakemake.params.descriptors) == len(snakemake.input.variants)
 variants = (pd.concat([pd.read_csv(f, sep='\t').assign(**descriptor)
                        for (f, descriptor) in zip(snakemake.input.variants,
-                                                 snakemake.params.descriptors)
+                                                  snakemake.params.descriptors)
                        ],
                       ignore_index=True)
             .rename(columns={'POS': 'site'})

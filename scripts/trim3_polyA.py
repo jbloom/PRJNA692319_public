@@ -1,9 +1,10 @@
+#!/usr/bin/env python
+
 """Script for rule ``scripts/trim3_polyA.py``."""
 
-
+import snakemake
 import Bio.SeqIO
 
 seq = Bio.SeqIO.read(snakemake.input.fasta, 'fasta')
-while seq.seq[-1] in ['A', 'a']:
-    seq.seq = seq.seq[: -1]
+seq.seq = seq.seq.rstrip('Aa')
 Bio.SeqIO.write([seq], snakemake.output.fasta, 'fasta')

@@ -1,8 +1,9 @@
+#!/usr/bin/env python
+
 """Implements ``snakemake`` rule `high_ident_bam`."""
 
-
+import snakemake
 import pysam
-
 
 min_length = snakemake.params.min_length
 min_identity = snakemake.params.min_identity
@@ -21,7 +22,8 @@ with pysam.AlignmentFile(snakemake.input.bam, 'rb') as bamfile:
                 try:
                     nm = read.get_tag('NM')
                 except KeyError:
-                    raise KeyError(f"read in {bam=} lacks NM tag")
+                    raise KeyError(
+                        f"read in {snakemake.input.bam=} lacks NM tag")
                 assert 0 <= nm, f"{nm=}, {length=}"
                 identity = 1 - nm / length
                 if identity >= min_identity:
